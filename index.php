@@ -31,10 +31,10 @@ var_dump($bd);
                   <div class="d-flex flex-column justify-content-between">
                         <div>
                         <h2><?php echo $item["title"] ?></h2>
-                        <p><?php echo $item["description"] ?></p>
+                        <p><?php echo substr($item["description"] , 0 , 300) . "..." ?></p>
                         </div>
                         <div class="text-end">
-                              <a href="#">voir</a>
+                              <a href="item.php?id=<?php echo $item["id"] ?>">voir</a>
                               <a href="#">supprimer</a>
                         </div>
                   </div>
