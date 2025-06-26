@@ -12,9 +12,10 @@
 <body>
 <header>
       <nav>
-            <ul>
-                  <li><a href="index.php">Accueil</a></li>
-                  <li><a href="">Ajouter</a></li>
-            </ul>
+          <ul>
+              <li><a href="index.php">Librairie</a></li>
+              <li><a href="index.php">Accueil</a></li>
+              <li><a href="">Ajouter</a></li>
+          </ul>
       </nav>
 </header>
