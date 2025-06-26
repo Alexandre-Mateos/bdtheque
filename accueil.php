@@ -18,6 +18,11 @@ $bd = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <?php include "header.php"?>
 
       <main>
+
+            <?php if(isset($_GET['delete']) && $_GET['delete'] === '1') : ?>
+                <p>L'album a été retiré de la collection</p>
+            <?php endif; ?>
+
             <?php foreach ($bd as $item) : ?>
                   <div class="d-flex">
                         <div>
@@ -31,7 +36,7 @@ $bd = $stmt->fetchAll(PDO::FETCH_ASSOC);
                             </div>
                             <div class="text-end">
                                 <a href="item.php?id=<?php echo $item["id"] ?>">voir</a>
-                                <a href="delete_treatment.php?id=<?php echo $item["id"] ?>">Retirer de la collection</a>
+                                <a href="delete_treatment.php?from=accueil&id=<?php echo $item["id"] ?>">Retirer de la collection</a>
                                 <?php if(isset($item['note'])) : ?>
                                     <a href="#">Modifier la note</a>
                                 <?php else : ?>

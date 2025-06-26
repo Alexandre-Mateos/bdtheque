@@ -19,7 +19,14 @@ $stmt->execute([
       'bd_id' => (int) $_GET['id']
 ]);
 
-header("Location: librairie.php?delete=1");
-exit();
+if(isset($_GET['from']) && $_GET['from'] === 'librairie'){
+      header("Location: librairie.php?delete=1");
+      exit();
+}
+if(isset($_GET['from']) && $_GET['from'] === 'accueil'){
+      header("Location: accueil.php?delete=1");
+      exit();
+}
+
 
 ?>

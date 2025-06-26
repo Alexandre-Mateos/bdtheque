@@ -47,7 +47,7 @@ $bd = $stmt->fetchAll(PDO::FETCH_ASSOC);
                       <a href="item.php?id=<?php echo $item["id"] ?>">voir</a>
 
                         <?php if ($item['user_id'] === $_SESSION['user_info']['id']) : ?>
-                            <a href="delete_treatment.php?id=<?php echo $item['id'] ?>">Retirer de ma collection</a>
+                            <a href="delete_treatment.php?from=librairie&id=<?php echo $item['id'] ?>">Retirer de ma collection</a>
                         <?php else : ?>
                             <a href="add_treatment.php?id=<?php echo $item['id'] ?>">Ajouter à ma collection</a>
                         <?php endif; ?>
