@@ -12,7 +12,7 @@ if (
 }
 
 $sql = "DELETE FROM user_bd
-        WHERE user_id = :user_id AND bd_id = :bd_id;";
+        WHERE user_id = :user_id AND bd_id = :bd_id";
 $stmt = $pdo->prepare($sql);
 $stmt->execute([
       'user_id' => (int) $_SESSION['user_info']['id'],

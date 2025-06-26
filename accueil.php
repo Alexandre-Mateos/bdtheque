@@ -23,6 +23,10 @@ $bd = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <p>L'album a été retiré de la collection</p>
             <?php endif; ?>
 
+            <?php if(isset($_GET['error']) && $_GET['error'] === '1') : ?>
+                <p>Un problème est survenue. La note n'a pas pu être modifiée</p>
+            <?php endif; ?>
+
             <?php foreach ($bd as $item) : ?>
                   <div class="d-flex">
                         <div>
@@ -38,9 +42,9 @@ $bd = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                 <a href="item.php?id=<?php echo $item["id"] ?>">voir</a>
                                 <a href="delete_treatment.php?from=accueil&id=<?php echo $item["id"] ?>">Retirer de la collection</a>
                                 <?php if(isset($item['note'])) : ?>
-                                    <a href="#">Modifier la note</a>
+                                    <a href="edit_treatment.php?id=<?php echo $item['id'] ?>">Modifier la note</a>
                                 <?php else : ?>
-                                    <a href="#">Ajouter une note</a>
+                                    <a href="edit_treatment.php?id=<?php echo $item['id'] ?>">Ajouter une note</a>
                                 <?php endif; ?>
                             </div>
                         </div>
