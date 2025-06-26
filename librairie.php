@@ -1,7 +1,10 @@
 <?php
 require "pdo.php";
+session_start();
 
-$sql = "SELECT * FROM bd";
+$sql = "SELECT * 
+        FROM bd
+        LEFT JOIN user_bd on bd.id = user_bd.bd_id";
 $stmt = $pdo->prepare($sql);
 $stmt->execute();
 $bd = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -26,7 +29,12 @@ $bd = $stmt->fetchAll(PDO::FETCH_ASSOC);
                   </div>
                   <div class="text-end">
                       <a href="item.php?id=<?php echo $item["id"] ?>">voir</a>
-                      <a href="item.php?id=<?php echo $item["id"] ?>">Ajouter à ma collection</a>
+                        <?php if ($item['user_id'] === $_SESSION['user_info']['id']) : ?>
+                            <a href="item.php?id=<?php echo $item["id"] ?>">Retirer de ma collection</a>
+                        <?php else : ?>
+                            <a href="item.php?id=<?php echo $item["id"] ?>">Ajouter à ma collection</a>
+                        <?php endif; ?>
+
                   </div>
               </div>
           </div>
