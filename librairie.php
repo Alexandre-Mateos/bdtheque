@@ -4,9 +4,9 @@ session_start();
 
 $sql = "SELECT *
         FROM bd
-        LEFT JOIN user_bd on bd.id = user_bd.bd_id";
+        LEFT JOIN user_bd on bd.id = user_bd.bd_id AND user_id = :user_id";
 $stmt = $pdo->prepare($sql);
-$stmt->execute();
+$stmt->execute(["user_id" => $_SESSION['user_info']['id']]);
 $bd = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 var_dump($bd);
