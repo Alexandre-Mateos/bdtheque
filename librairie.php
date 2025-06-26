@@ -2,20 +2,28 @@
 require "pdo.php";
 session_start();
 
-$sql = "SELECT * 
+$sql = "SELECT *
         FROM bd
         LEFT JOIN user_bd on bd.id = user_bd.bd_id";
 $stmt = $pdo->prepare($sql);
 $stmt->execute();
 $bd = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-//var_dump($bd);
+var_dump($bd);
 ?>
 
 <?php include "header.php" ?>
 
 <main>
-    <h1>Mes albums</h1>
+    <h1>Explorer</h1>
+
+      <?php if(isset($_GET['error']) && $_GET['error'] === '1') : ?>
+          <p>Un problème est survenue. Impossible d'ajouter l'album à la collection</p>
+      <?php endif; ?>
+
+      <?php if(isset($_GET['success']) && $_GET['success'] === '1') : ?>
+          <p>L'album a été ajouté à la collection !</p>
+      <?php endif; ?>
 
       <?php foreach ($bd as $item) : ?>
           <div class="d-flex">
@@ -29,16 +37,18 @@ $bd = $stmt->fetchAll(PDO::FETCH_ASSOC);
                   </div>
                   <div class="text-end">
                       <a href="item.php?id=<?php echo $item["id"] ?>">voir</a>
+
                         <?php if ($item['user_id'] === $_SESSION['user_info']['id']) : ?>
-                            <a href="item.php?id=<?php echo $item["id"] ?>">Retirer de ma collection</a>
+                            <a href="#">Retirer de ma collection</a>
                         <?php else : ?>
-                            <a href="item.php?id=<?php echo $item["id"] ?>">Ajouter à ma collection</a>
+                            <a href="add_treatment.php?id=<?php echo $item['id'] ?>">Ajouter à ma collection</a>
                         <?php endif; ?>
 
                   </div>
               </div>
           </div>
       <?php endforeach; ?>
+
 </main>
 
 <?php include "footer.php" ?>
