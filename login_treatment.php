@@ -1,6 +1,13 @@
 <?php
+
+if (!isset($_POST['username']) || strlen($_POST['username']) < 1){
+      header("Location: index.php?error=1");
+      exit();
+}
+
 require "pdo.php";
 session_start();
+
 
 $sql = "SELECT * 
         FROM user
@@ -13,8 +20,6 @@ foreach ($user_info as $info){
       $_SESSION['user_info'] = $info;
 }
 
-$redirection = "Location: accueil.php";
-
-header($redirection);
-
+header("Location: accueil.php");
+exit();
 ?>

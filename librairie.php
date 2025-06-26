@@ -6,7 +6,7 @@ $stmt = $pdo->prepare($sql);
 $stmt->execute();
 $bd = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-var_dump($bd);
+//var_dump($bd);
 ?>
 
 <?php include "header.php" ?>

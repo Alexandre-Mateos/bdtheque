@@ -13,5 +13,9 @@
             <input id="username" type="text" name="username">
             <button type="submit">Log in</button>
       </form>
+
+<?php if(isset($_GET['error']) && $_GET['error'] === '1') : ?>
+      <p>Il manque le pseudo !</p>
+<?php endif; ?>
 </body>
 </html>
