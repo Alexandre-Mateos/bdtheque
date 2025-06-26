@@ -1,6 +1,6 @@
 <?php
 require "pdo.php";
-
+var_dump($_GET);
 $sql = "SELECT * 
         FROM bd
         JOIN serie ON serie.id = bd.serie_id
@@ -15,7 +15,7 @@ $bd = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 
 
-var_dump($bd);
+//var_dump($bd);
 ?>
 
 <?php include "header.php" ?>

@@ -2,7 +2,7 @@
 require "pdo.php";
 session_start();
 
-$sql = "SELECT *
+$sql = "SELECT bd.*, user_id
         FROM bd
         LEFT JOIN user_bd on bd.id = user_bd.bd_id AND user_id = :user_id";
 $stmt = $pdo->prepare($sql);

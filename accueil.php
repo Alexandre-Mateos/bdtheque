@@ -12,7 +12,7 @@ $stmt = $pdo->prepare($sql);
 $stmt->execute(["id" => $_SESSION['user_info']['id']]);
 $bd = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-var_dump($bd);
+//var_dump($bd);
 ?>
 
 <?php include "header.php"?>
