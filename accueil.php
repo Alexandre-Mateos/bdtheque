@@ -31,7 +31,7 @@ $bd = $stmt->fetchAll(PDO::FETCH_ASSOC);
                             </div>
                             <div class="text-end">
                                 <a href="item.php?id=<?php echo $item["id"] ?>">voir</a>
-                                <a href="#">supprimer</a>
+                                <a href="delete_treatment.php?id=<?php echo $item["id"] ?>">Retirer de la collection</a>
                                 <?php if(isset($item['note'])) : ?>
                                     <a href="#">Modifier la note</a>
                                 <?php else : ?>

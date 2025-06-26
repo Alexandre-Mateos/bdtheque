@@ -21,8 +21,16 @@ $bd = $stmt->fetchAll(PDO::FETCH_ASSOC);
           <p>Un problème est survenue. Impossible d'ajouter l'album à la collection</p>
       <?php endif; ?>
 
+      <?php if(isset($_GET['error']) && $_GET['error'] === '2') : ?>
+          <p>Un problème est survenue. Impossible de retirer l'album de la collection</p>
+      <?php endif; ?>
+
       <?php if(isset($_GET['success']) && $_GET['success'] === '1') : ?>
           <p>L'album a été ajouté à la collection !</p>
+      <?php endif; ?>
+
+      <?php if(isset($_GET['delete']) && $_GET['delete'] === '1') : ?>
+          <p>L'album a été retiré de la collection</p>
       <?php endif; ?>
 
       <?php foreach ($bd as $item) : ?>
@@ -39,7 +47,7 @@ $bd = $stmt->fetchAll(PDO::FETCH_ASSOC);
                       <a href="item.php?id=<?php echo $item["id"] ?>">voir</a>
 
                         <?php if ($item['user_id'] === $_SESSION['user_info']['id']) : ?>
-                            <a href="#">Retirer de ma collection</a>
+                            <a href="delete_treatment.php?id=<?php echo $item['id'] ?>">Retirer de ma collection</a>
                         <?php else : ?>
                             <a href="add_treatment.php?id=<?php echo $item['id'] ?>">Ajouter à ma collection</a>
                         <?php endif; ?>
