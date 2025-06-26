@@ -12,24 +12,24 @@ var_dump($bd);
 <?php include "header.php" ?>
 
 <main>
-<h1>Mes albums</h1>
+    <h1>Mes albums</h1>
 
       <?php foreach ($bd as $item) : ?>
-            <div class="d-flex">
+          <div class="d-flex">
+              <div>
+                  <img src="assets/images/<?php echo $item["image"] ?>">
+              </div>
+              <div class="d-flex flex-column justify-content-between">
                   <div>
-                        <img src="assets/images/<?php echo $item["image"] ?>">
+                      <h2><?php echo $item["title"] ?></h2>
+                      <p><?php echo substr($item["description"], 0, 300) . "..." ?></p>
                   </div>
-                  <div class="d-flex flex-column justify-content-between">
-                        <div>
-                        <h2><?php echo $item["title"] ?></h2>
-                        <p><?php echo substr($item["description"] , 0 , 300) . "..." ?></p>
-                        </div>
-                        <div class="text-end">
-                              <a href="item.php?id=<?php echo $item["id"] ?>">voir</a>
-                              <a href="#">supprimer</a>
-                        </div>
+                  <div class="text-end">
+                      <a href="item.php?id=<?php echo $item["id"] ?>">voir</a>
+                      <a href="item.php?id=<?php echo $item["id"] ?>">Ajouter à ma collection</a>
                   </div>
-            </div>
+              </div>
+          </div>
       <?php endforeach; ?>
 </main>
 

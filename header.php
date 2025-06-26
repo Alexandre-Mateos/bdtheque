@@ -14,8 +14,9 @@
       <nav>
           <ul>
               <li><a href="librairie.php">Librairie</a></li>
-              <li><a href="accueil.php">Accueil</a></li>
+              <li><a href="accueil.php">Ma collection</a></li>
               <li><a href="">Ajouter</a></li>
+              <li><a href="logout_treatment.php">Log out</a></li>
           </ul>
       </nav>
 </header>
