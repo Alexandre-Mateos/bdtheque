@@ -13,8 +13,8 @@
 <header>
       <nav>
           <ul>
-              <li><a href="index.php">Librairie</a></li>
-              <li><a href="index.php">Accueil</a></li>
+              <li><a href="librairie.php">Librairie</a></li>
+              <li><a href="accueil.php">Accueil</a></li>
               <li><a href="">Ajouter</a></li>
           </ul>
       </nav>
